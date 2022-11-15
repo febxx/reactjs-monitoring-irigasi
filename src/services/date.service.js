@@ -16,7 +16,7 @@ class DateService {
 
   getTanggal() {
     var date = new Date();
-    return date.toLocaleDateString('en-GB');
+    return date.toLocaleDateString('en-us');
   }
 }
 

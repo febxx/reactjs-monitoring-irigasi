@@ -1,23 +1,30 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import '../App.css';
+import { useState } from "react";
 
-
-class Kontrol extends React.Component {
-    render() {
-        return (
-            <div className="container-fluid text-center">
-                <div className="bg-primary mx-4 mt-4 p-4 text-white">
-                    <h4>Kontrol</h4>
-                </div>
-                <div className="bg-primary mx-4 mt-4 p-4 text-white dt">
-                    <h4>Power Pump</h4>
-                    <a className="btn btn-success" href='/'>ON</a>
-                    <a className="btn btn-secondary" href='/'>OFF</a>
-                </div>
-            </div>
-        )
-    }
+function Kontrol() {
+  const [isActive, setIsActive] = useState(false);
+  const handleClick = (e) => {
+    setIsActive((current) => !current);
+  };
+  return (
+    <div class="content mt-4">
+      <h3>Power Pump</h3>
+      <button type="button" className={isActive ? "active" : ""} onClick={handleClick}>
+        <span>
+          <b></b>
+          <svg viewBox="-5.5 -5.5 71 71" id="circle">
+            <circle
+              cx="30"
+              cy="30"
+              r="30"
+              stroke="white"
+              stroke-width="11"
+              fill="transparent"
+            ></circle>
+          </svg>
+        </span>
+      </button>
+    </div>
+  );
 }
 
 export default Kontrol;
